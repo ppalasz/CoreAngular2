@@ -22,10 +22,14 @@ import { ValuesService } from "../../app/services/values.service";
 })
   
 export class ApiDropdownComponent implements OnInit {
-
+  
   public values;
+  public selectedSku = 1;
 
   constructor(public valuesService: ValuesService) {
+    setInterval(() => {
+      this.valuesService.getAllValues().subscribe(values => this.values = values);
+    }, 2000);
   }
 
 

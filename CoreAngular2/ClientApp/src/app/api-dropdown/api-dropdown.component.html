@@ -1,9 +1,9 @@
 <p>
   
   
-  <select multiple="multiple" style="height: 200px;">
-    <option value="0">--All--</option>
-    <option *ngFor="let v of values" value={{v.id}}>
+  <select multiple="multiple" style="height: 200px;"  >
+    <option value="0" >--All--</option>
+    <option *ngFor="let v of values" value={{v.id}} >
       {{v.name}}
     </option>
   </select>

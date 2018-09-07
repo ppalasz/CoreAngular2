@@ -9,13 +9,19 @@ namespace CoreAngular2.Controllers
     public class ValuesController : ControllerBase
     {
         private List<ValuesPair> values;
+        private static int _startId = 0;
+        static ValuesController()
+        {
+            
+        }
 
         public ValuesController()
         {
+
             values = new List<ValuesPair>();
-            values.Add(new ValuesPair() { Id = 11, Name = "ble ble" });
-            values.Add(new ValuesPair() { Id = 12, Name = "boo boo" });
-            values.Add(new ValuesPair() { Id = 13, Name = "bttt ble" });
+            values.Add(new ValuesPair() { Id = 1, Name = "ble ble " + _startId++ .ToString()});
+            values.Add(new ValuesPair() { Id = 2, Name = "boo boo " + _startId++.ToString() });
+            values.Add(new ValuesPair() { Id = 3, Name = "bttt ble " + _startId++.ToString() });
         }
 
         // GET api/values

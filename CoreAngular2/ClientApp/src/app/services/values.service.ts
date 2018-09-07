@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
+import { timer,Observable } from "rxjs";
 
 
 @Injectable()
@@ -12,7 +12,9 @@ export class ValuesService {
 
   constructor(private http: Http) {
     this.apiRoot = window.location.href;
-    this.actionUrl = this.apiRoot + '/Data/sample.txt';//'/api/values/';
+    this.actionUrl = this.apiRoot + '/api/values/';
+
+   
   }
 
   public getAllValues = (): Observable<any> => {

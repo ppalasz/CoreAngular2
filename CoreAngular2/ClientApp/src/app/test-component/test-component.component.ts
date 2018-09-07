@@ -21,7 +21,9 @@ export class TestComponentComponent implements OnInit {
     
     this.today = new Date();
     
-
+    setInterval(() => {
+      this.today = new Date();
+    }, 1000);
   }
 
   ngOnInit() {
