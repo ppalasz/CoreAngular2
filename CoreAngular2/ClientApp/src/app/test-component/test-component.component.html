@@ -1,0 +1,13 @@
+
+<p>
+  test-component works!
+</p>
+<!-- Default format: output 'Jun 15, 2015'-->
+<p>Today is {{today | date}}</p>
+<!-- fullDate format: output 'Monday, June 15, 2015'-->
+<p>The date is {{today | date:'fullDate'}}</p>
+<!-- shortTime format: output '9:43 AM'-->
+<p>The time is {{today | date:'shortTime'}}</p>
+
+
+<app-now format="HH:mm:ss:SSS"></app-now>

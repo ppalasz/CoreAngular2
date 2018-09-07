@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CoreAngular2.Controllers
 {
@@ -10,18 +8,28 @@ namespace CoreAngular2.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private List<ValuesPair> values;
+
+        public ValuesController()
+        {
+            values = new List<ValuesPair>();
+            values.Add(new ValuesPair() { Id = 11, Name = "ble ble" });
+            values.Add(new ValuesPair() { Id = 12, Name = "boo boo" });
+            values.Add(new ValuesPair() { Id = 13, Name = "bttt ble" });
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<ValuesPair>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return values;
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<ValuesPair> Get(int id)
         {
-            return "value";
+            return values.Where(x => x.Id == id).Select(x => x).FirstOrDefault();
         }
 
         // POST api/values
@@ -41,5 +49,11 @@ namespace CoreAngular2.Controllers
         public void Delete(int id)
         {
         }
+    }
+
+    public class ValuesPair
+    {
+        public int Id;
+        public string Name;
     }
 }
